@@ -7,6 +7,10 @@ const fastify = Fastify({
   genReqId: () => crypto.randomUUID(),
 });
 
+fastify.get("/", async (request, reply) => {
+  return { hello: "world" };
+});
+
 const start = async () => {
   try {
     await fastify.listen({ port: env.PORT, host: env.HOST });
