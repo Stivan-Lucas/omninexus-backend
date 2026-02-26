@@ -1,23 +1,49 @@
 import Fastify from "fastify";
 import { env } from "./utils/env";
-import { logger } from "./utils/logger";
+import { getLoggerOptions } from "./utils/logger";
 
-const fastify = Fastify({
-	logger,
-	genReqId: () => crypto.randomUUID(),
+const app = Fastify({
+  logger: getLoggerOptions(),
+  genReqId: () => crypto.randomUUID(),
 });
 
-fastify.get("/", async (_request, _reply) => {
-	return { hello: "world" };
+// Rotas
+app.get("/", async () => {
+  return { status: "ok", message: "Bun + Fastify is running" };
 });
 
+/**
+ * Gerenciamento de encerramento (Graceful Shutdown)
+ */
+const handleShutdown = async () => {
+  app.log.info("Shutting down gracefully...");
+  try {
+    await app.close();
+    app.log.info("Server closed. Goodbye!");
+    process.exit(0);
+  } catch (err) {
+    app.log.error(err);
+    process.exit(1);
+  }
+};
+
+// Sinais que o sistema operacional envia para parar o processo
+process.on("SIGINT", handleShutdown); // Ctrl+C
+process.on("SIGTERM", handleShutdown); // Comando de parada (ex: Docker/PM2)
+
+/**
+ * Inicialização
+ */
 const start = async () => {
-	try {
-		await fastify.listen({ port: env.PORT, host: env.HOST });
-	} catch (err) {
-		fastify.log.error(err);
-		process.exit(1);
-	}
+  try {
+    await app.listen({
+      port: env.PORT,
+      host: env.HOST,
+    });
+  } catch (err) {
+    app.log.error(err);
+    process.exit(1);
+  }
 };
 
 start();

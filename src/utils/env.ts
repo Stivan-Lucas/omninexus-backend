@@ -1,21 +1,29 @@
 import { z } from "zod";
-import "dotenv/config";
 
 const envSchema = z.object({
-	NODE_ENV: z
-		.enum(["development", "production", "test"])
-		.default("development"),
-	PORT: z.coerce.number().int().positive(),
-	HOST: z.string().min(1),
+  NODE_ENV: z
+    .enum(["development", "production", "test"])
+    .default("development"),
+  PORT: z.coerce.number().int().positive().default(3333),
+  HOST: z.string().min(1).default("0.0.0.0"),
+
+  LOG_LEVEL: z
+    .enum(["fatal", "error", "warn", "info", "debug", "trace", "silent"])
+    .default("info"),
+
+  LOG_ROTATION_SIZE: z.string().default("100m"),
+  LOG_ROTATION_INTERVAL: z.string().default("1d"),
+  LOG_KEEP_COUNT: z.coerce.number().int().positive().default(7),
 });
 
-const parsed = envSchema.safeParse(process.env);
+const result = envSchema.safeParse(process.env);
 
-if (!parsed.success) {
-	console.error("❌ Invalid environment variables");
-	const tree = z.treeifyError(parsed.error);
-	console.error(tree);
-	process.exit(1);
+if (!result.success) {
+  console.error("❌ Invalid environment variables:");
+  const tree = z.treeifyError(result.error);
+  console.error(tree);
+  process.exit(1);
 }
 
-export const env = parsed.data;
+export const env = result.data;
+export type Env = z.infer<typeof envSchema>;
