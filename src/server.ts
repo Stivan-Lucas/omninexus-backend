@@ -7,7 +7,7 @@ const fastify = Fastify({
 	genReqId: () => crypto.randomUUID(),
 });
 
-fastify.get("/", async (request, reply) => {
+fastify.get("/", async (_request, _reply) => {
 	return { hello: "world" };
 });
 
