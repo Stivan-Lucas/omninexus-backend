@@ -1,1 +1,1 @@
-bunx biome check . --write --unsafe
+bunx biome check . --write
