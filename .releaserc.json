@@ -1,0 +1,22 @@
+{
+	"branches": ["main", "master"],
+	"plugins": [
+		"@semantic-release/commit-analyzer",
+		"@semantic-release/release-notes-generator",
+		"@semantic-release/changelog",
+		[
+			"@semantic-release/exec",
+			{
+				"prepareCmd": "bun version ${nextRelease.version} --no-git-tag-version && bun install"
+			}
+		],
+		[
+			"@semantic-release/git",
+			{
+				"assets": ["package.json", "bun.lockb", "CHANGELOG.md"],
+				"message": "chore(release): ${nextRelease.version} [skip ci]"
+			}
+		],
+		"@semantic-release/github"
+	]
+}
