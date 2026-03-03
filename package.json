@@ -18,7 +18,8 @@
 		"db:deploy": "prisma migrate deploy",
 		"db:migrate": "prisma migrate dev",
 		"db:studio": "prisma studio",
-		"generate": "prisma generate"
+		"generate": "prisma generate",
+		"postinstall": "prisma generate"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.4",
