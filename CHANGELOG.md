@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/Stivan-Lucas/omninexus-backend/compare/v1.0.0...v1.1.0) (2026-03-03)
+
+
+### Features
+
+* add db:deploy and postinstall scripts ([a014119](https://github.com/Stivan-Lucas/omninexus-backend/commit/a014119822bb9f141f78ff644f234f406b7fc2fc))
+* add db:deploy and postinstall scripts ([0240ac4](https://github.com/Stivan-Lucas/omninexus-backend/commit/0240ac428d4d0e4a59aecf0446c15f7c5b8dcb8d))
+
 # 1.0.0 (2026-02-27)
 
 
