@@ -15,6 +15,7 @@
 		"check": "biome check .",
 		"release": "semantic-release",
 		"version": "bun run build",
+		"db:deploy": "prisma migrate deploy",
 		"db:migrate": "prisma migrate dev",
 		"db:studio": "prisma studio",
 		"generate": "prisma generate"
