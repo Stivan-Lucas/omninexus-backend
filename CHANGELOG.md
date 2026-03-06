@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Stivan-Lucas/omninexus-backend/compare/v1.0.1...v1.0.2) (2026-03-06)
+
+
+### Bug Fixes
+
+* **db:** configure connection strategy for Supabase pooling and direct migration ([96e1471](https://github.com/Stivan-Lucas/omninexus-backend/commit/96e1471e9c1eca1b909e0957eef34758ca93995f))
+
 ## [1.0.1](https://github.com/Stivan-Lucas/omninexus-backend/compare/v1.0.0...v1.0.1) (2026-03-06)
 
 
