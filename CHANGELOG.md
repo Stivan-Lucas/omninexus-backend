@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/Stivan-Lucas/omninexus-backend/compare/v1.0.0...v1.0.1) (2026-03-06)
+
+
+### Bug Fixes
+
+* **env:** remove strict validation and update prisma datasource ([e29044a](https://github.com/Stivan-Lucas/omninexus-backend/commit/e29044a0f1a0670562ae74dc46e3d4c5427cfffc))
+* remove strict validation from env schema ([6df9ace](https://github.com/Stivan-Lucas/omninexus-backend/commit/6df9acec958b3282ec00faebe080ef7d09c996e7))
+
 # 1.0.0 (2026-02-27)
 
 
