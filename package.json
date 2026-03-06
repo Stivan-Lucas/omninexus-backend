@@ -7,7 +7,7 @@
 	"license": "Apache-2.0",
 	"scripts": {
 		"dev": "bun --watch src/server.ts",
-		"start": "bun src/server.ts",
+		"start": "bun run db:deploy && bun src/server.ts",
 		"build": "bun build src/server.ts --outdir dist --target bun",
 		"prepare": "husky",
 		"lint": "biome lint .",
@@ -17,6 +17,7 @@
 		"version": "bun run build",
 		"db:migrate": "prisma migrate dev",
 		"db:studio": "prisma studio",
+		"db:deploy": "prisma generate && prisma migrate deploy",
 		"generate": "prisma generate"
 	},
 	"devDependencies": {
