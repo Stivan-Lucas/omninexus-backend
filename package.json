@@ -6,6 +6,12 @@
   "type": "module",
   "private": true,
   "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "https://apache.org/licenses/LICENSE-2.0"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Stivan-Lucas/backend.git"
@@ -38,6 +44,8 @@
   },
   "dependencies": {
     "@fastify/cors": "^11.2.0",
+    "@fastify/swagger": "^9.7.0",
+    "@scalar/fastify-api-reference": "^1.49.1",
     "fastify": "^5.8.2",
     "fastify-type-provider-zod": "^6.1.0",
     "pino-roll": "^4.0.0",
