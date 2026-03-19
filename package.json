@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "type": "module",
   "private": true,
+  "homepage": "https://github.com/Stivan-Lucas/backend#readme",
   "license": "Apache-2.0",
   "licenses": [
     {
@@ -27,6 +28,13 @@
     "email": "suporte@omninexus.com.br",
     "name": "Lucas Camargo Stivan",
     "url": "https://www.omninexus.com.br/"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/Stivan-Lucas/backend/issues",
+    "email": "suporte@omninexus.com.br"
   },
   "scripts": {
     "dev": "bun --watch src/server.ts",

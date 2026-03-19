@@ -5,6 +5,14 @@
 ![Fastify](https://img.shields.io/badge/fastify-%23000000.svg?style=for-the-badge&logo=fastify&logoColor=white)
 ![Kafka](https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Drizzle ORM](https://img.shields.io/badge/drizzle-orm-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black)
+
+[![GitHub Release](https://img.shields.io/github/v/release/Stivan-Lucas/backend?style=flat-square&color=7c3aed)](https://github.com/Stivan-Lucas/backend/releases)
+[![GitHub License](https://img.shields.io/github/license/Stivan-Lucas/backend?style=flat-square&color=7c3aed)](https://github.com/Stivan-Lucas/backend/blob/main/LICENSE)
+[![Commitizen Friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
+
+[![Release Status](https://github.com/Stivan-Lucas/backend/actions/workflows/release.yml/badge.svg)](https://github.com/Stivan-Lucas/backend/actions/workflows/release.yml)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/Stivan-Lucas/backend?style=flat-square)
 
 O **OmniNexus** é uma plataforma de Monitoramento e Gerenciamento Remoto (RMM) de alta performance, projetada para escala horizontal. Utilizando um agente ultraleve em **Rust** e um backend reativo com **Bun** e **Kafka**, ele entrega telemetria eficiente com baixo consumo de recursos e isolamento multi-tenant.
 
@@ -25,7 +33,7 @@ Manter parques tecnológicos de diversas empresas exige visibilidade proativa. O
 
 * **Runtime:** [Bun](https://bun.sh/) (Performance de ultra-baixa latência)
 * **Framework:** [Fastify](https://www.fastify.io/) (Ecosystem orientado a plugins e velocidade)
-* **Mensageria:** [Apache Kafka](https://kafka.apache.org/) (Streaming de dados e resiliência)
+* **Mensageira:** [Apache Kafka](https://kafka.apache.org/) (Streaming de dados e resiliência)
 * **ORM:** [Drizzle ORM](https://orm.drizzle.team/) (Type-safety e performance SQL nativa)
 * **Bancos de Dados:** PostgreSQL (Segregação de Read/Write) e Redis (Cache/Rate Limit)
 * **Agent:** Rust (Segurança de memória e baixo overhead)
@@ -74,6 +82,7 @@ Manter parques tecnológicos de diversas empresas exige visibilidade proativa. O
     ```
 
 Acesse a documentação em: `http://localhost:3000/docs`
+> **Nota:** Utilize as credenciais definidas no seu `.env` (`SAGGER_USER` / `SAGGER_PASS`) para acessar.
 
 ---
 
@@ -101,7 +110,8 @@ Adoramos contribuições! Para manter a rastreabilidade e o histórico limpo, ut
 
 ## 📄 Licença
 
-Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
+Distribuído sob a licença Apache-2.0. Veja `LICENSE` para mais informações.
 
 ---
 **Desenvolvido com ☕ por Stivan Lucas.**
+2
