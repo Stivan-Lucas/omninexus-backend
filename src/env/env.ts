@@ -42,8 +42,8 @@ const envSchema = z.object({
     .transform((val) => val.split(',').map((v) => v.trim())),
 
   // SAGGER Login Config
-  SAGGER_USER: z.string().min(1),
-  SAGGER_PASS: z.string().min(1),
+  SWAGGER_USER: z.string().min(1),
+  SWAGGER_PASS: z.string().min(1),
 })
 
 const _env = envSchema.safeParse(Bun.env)

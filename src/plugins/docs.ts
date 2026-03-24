@@ -10,7 +10,7 @@ export const docsPlugin = fp(async (app: FastifyTypedInstance) => {
   // Proteção básica para rota de documentação
   await app.register(fastifyBasicAuth, {
     validate: async (user, pass) => {
-      if (user !== env.SAGGER_USER || pass !== env.SAGGER_PASS) {
+      if (user !== env.SWAGGER_USER || pass !== env.SWAGGER_PASS) {
         return new Error('Unauthorized')
       }
     },
@@ -42,7 +42,7 @@ export const docsPlugin = fp(async (app: FastifyTypedInstance) => {
           description: 'Desenvolvimento',
         },
         {
-          url: 'https://www.omninexus.com.br/api',
+          url: 'https://backend-production-93d9.up.railway.app/',
           description: 'Produção',
         },
       ],
