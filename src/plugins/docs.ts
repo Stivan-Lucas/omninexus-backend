@@ -21,9 +21,10 @@ export const docsPlugin = fp(async (app: FastifyTypedInstance) => {
   await app.register(fastifySwagger, {
     openapi: {
       info: {
-        title: packageJson.name,
+        title: packageJson.displayName,
         version: packageJson.version,
         description: packageJson.description,
+        termsOfService: 'https://www.omninexus.com.br/terms',
         license: {
           name: packageJson.licenses[0]?.type ?? 'None',
           identifier: packageJson.licenses[0]?.type,
@@ -35,7 +36,27 @@ export const docsPlugin = fp(async (app: FastifyTypedInstance) => {
           url: packageJson.author.url,
         },
       },
-      tags: [{ name: 'Admin', description: 'Acesso restrito' }],
+      servers: [
+        {
+          url: `http://127.0.0.1:${env.PORT}`,
+          description: 'Desenvolvimento',
+        },
+        {
+          url: 'https://www.omninexus.com.br/api',
+          description: 'Produção',
+        },
+      ],
+      components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: 'http',
+            scheme: 'bearer',
+            bearerFormat: 'JWT',
+            description: 'Insira o token JWT no campo abaixo.',
+          },
+        },
+      },
+      tags: [{ name: 'Auth', description: 'End Points de autenticação' }],
     },
   })
 
@@ -45,10 +66,19 @@ export const docsPlugin = fp(async (app: FastifyTypedInstance) => {
 
     // Registro do Scalar UI para documentação
     await protectedScope.register(scalarApiReference, {
+      logLevel: 'silent',
       routePrefix: '/docs',
       configuration: {
-        showDeveloperTools: 'never',
+        title: packageJson.name,
+        darkMode: true,
         theme: 'purple',
+        showDeveloperTools: 'never',
+        hideDownloadButton: false,
+        searchHotKey: 'k',
+        metaData: {
+          title: `API Documentation - ${packageJson.displayName}`,
+          description: packageJson.description,
+        },
       },
     })
   })
