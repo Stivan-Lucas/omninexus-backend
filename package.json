@@ -65,7 +65,7 @@
     "@fastify/basic-auth": "^6.2.0",
     "@fastify/cors": "^11.2.0",
     "@fastify/swagger": "^9.7.0",
-    "@scalar/fastify-api-reference": "^1.49.3",
+    "@scalar/fastify-api-reference": "^1.49.5",
     "fastify": "^5.8.4",
     "fastify-type-provider-zod": "^6.1.0",
     "pino-roll": "^4.0.0",
