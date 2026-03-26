@@ -1,11 +1,10 @@
-import fastifyCors from '@fastify/cors'
 import Fastify from 'fastify'
 import {
   serializerCompiler,
   validatorCompiler,
   type ZodTypeProvider,
 } from 'fastify-type-provider-zod'
-import { env } from './env/env'
+import { corsPlugin } from './plugins/cors'
 import { docsPlugin } from './plugins/docs'
 import { getLoggerOptions } from './utils/logger'
 
@@ -17,12 +16,7 @@ export const app = Fastify({
 app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
 
-app.register(fastifyCors, {
-  origin: env.CORS_ORIGIN,
-  methods: env.CORS_METHODS,
-  allowedHeaders: env.CORS_ALLOWED_HEADERS,
-})
-
+await app.register(corsPlugin)
 await app.register(docsPlugin)
 
 app.get('/', async (req, res) => {
