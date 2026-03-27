@@ -1,35 +1,43 @@
 import z from 'zod'
+import { t } from '../lib/i18n'
 
 const sizeRegex = /^\d+(k|m|g)$/i
 const intervalRegex = /^\d+(s|m|h|d)$/i
+const rateLimitTimeRegex =
+  /^\d+\s?(ms|s|m|h|d|second|seconds|minute|minutes|hour|hours|day|days|week)$/i
 
 const envSchema = z.object({
   // Server Config
-  NODE_ENV: z.enum(['development', 'production', 'test']),
-  PORT: z.coerce.number().int().positive(),
-  HOST: z.string(),
+  NODE_ENV: z.enum(['development', 'production', 'test'], {
+    message: t('errors.env.invalid_node_env'),
+  }),
+  PORT: z.coerce.number().int().positive(t('errors.env.invalid_port')),
+  HOST: z.string().min(1, t('errors.env.host_required')),
 
   // LOGS Config
-  LOG_LEVEL: z.enum([
-    'trace',
-    'debug',
-    'info',
-    'notice',
-    'warn',
-    'error',
-    'critical',
-    'alert',
-    'emergency',
-    'fatal',
-    'all',
-    'off',
-  ]),
-  LOG_ROTATION_SIZE: z
-    .string()
-    .regex(sizeRegex, 'Invalid size format (ex: 100m, 1g)'),
+  LOG_LEVEL: z.enum(
+    [
+      'trace',
+      'debug',
+      'info',
+      'notice',
+      'warn',
+      'error',
+      'critical',
+      'alert',
+      'emergency',
+      'fatal',
+      'all',
+      'off',
+    ],
+    {
+      message: t('errors.env.invalid_log_level'),
+    },
+  ),
+  LOG_ROTATION_SIZE: z.string().regex(sizeRegex, t('errors.env.invalid_size')),
   LOG_ROTATION_INTERVAL: z
     .string()
-    .regex(intervalRegex, 'Invalid interval format (ex: 1d, 12h)'),
+    .regex(intervalRegex, t('errors.env.invalid_interval')),
   LOG_KEEP_COUNT: z.coerce.number().int().positive(),
 
   // CORS Config
@@ -42,14 +50,29 @@ const envSchema = z.object({
     .transform((val) => val.split(',').map((v) => v.trim())),
 
   // SAGGER Login Config
-  SWAGGER_USER: z.string().min(1),
-  SWAGGER_PASS: z.string().min(1),
+  SWAGGER_USER: z.string().min(1, t('errors.env.swagger_required')),
+  SWAGGER_PASS: z.string().min(1, t('errors.env.swagger_required')),
+
+  // Rate Limite Config
+  RATE_LIMIT_MAX: z.coerce
+    .number()
+    .int()
+    .positive(t('errors.env.invalid_rate_limit_max')),
+  RATE_LIMIT_WINDOW: z
+    .string()
+    .regex(rateLimitTimeRegex, t('errors.env.invalid_rate_limit_window')),
+  RATE_LIMIT_SKIP_PATHS: z.string().transform((val) =>
+    val
+      .split(',')
+      .map((v) => v.trim())
+      .filter(Boolean),
+  ),
 })
 
 const _env = envSchema.safeParse(Bun.env)
 
 if (!_env.success) {
-  console.error('❌ Invalid environment variables:')
+  console.error(t('errors.env.invalid_variables'))
   const tree = z.treeifyError(_env.error)
   console.error(tree)
   process.exit(1)
