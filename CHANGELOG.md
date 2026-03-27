@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/Stivan-Lucas/backend/compare/v1.1.0...v1.2.0) (2026-03-27)
+
+
+### Features
+
+* **i18n:** implement multi-language support with automatic detection ([3340743](https://github.com/Stivan-Lucas/backend/commit/33407437124303563875214db1717d017d9770b0))
+* **rate-limit:** add localized error messages and request throttling ([031e4a1](https://github.com/Stivan-Lucas/backend/commit/031e4a15f239e527555a24d3523cc6355b07e2f6))
+* **security:** implement rate limiting plugin with i18n support ([93acfca](https://github.com/Stivan-Lucas/backend/commit/93acfca07292d4231715272798533674af3bf51e))
+
 # [1.1.0](https://github.com/Stivan-Lucas/backend/compare/v1.0.0...v1.1.0) (2026-03-27)
 
 
