@@ -2,6 +2,7 @@ import fastifyBasicAuth from '@fastify/basic-auth'
 import fastifySwagger from '@fastify/swagger'
 import scalarApiReference from '@scalar/fastify-api-reference'
 import fp from 'fastify-plugin'
+import { jsonSchemaTransform } from 'fastify-type-provider-zod'
 import packageJson from '../../package.json'
 import { env } from '../env/env'
 import type { FastifyTypedInstance } from '../types/fastify'
@@ -19,6 +20,7 @@ export const docsPlugin = fp(async (app: FastifyTypedInstance) => {
 
   // Registro de swagger
   await app.register(fastifySwagger, {
+    transform: jsonSchemaTransform,
     openapi: {
       info: {
         title: packageJson.displayName,

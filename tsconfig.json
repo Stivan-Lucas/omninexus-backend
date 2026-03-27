@@ -28,6 +28,8 @@
 
     // Access to package
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+
+    "allowSyntheticDefaultImports": true
   }
 }
