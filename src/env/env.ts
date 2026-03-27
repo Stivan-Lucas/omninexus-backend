@@ -79,3 +79,5 @@ if (!_env.success) {
 }
 
 export const env = _env.data
+export const isDev = env.NODE_ENV !== 'production'
+export const isTest = env.NODE_ENV === 'test'
