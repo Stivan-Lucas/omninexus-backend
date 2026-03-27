@@ -1,9 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import type { LoggerOptions } from 'pino'
-import { env } from '../env/env'
+import { env, isDev } from '../env/env'
 
-const isDev = env.NODE_ENV !== 'production'
 const logsDir = path.resolve(process.cwd(), 'logs')
 
 /**

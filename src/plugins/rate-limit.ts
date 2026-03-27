@@ -16,6 +16,13 @@ export const rateLimitPlugin = fp(async (app: FastifyTypedInstance) => {
           const url = request.raw.url ?? ''
           return env.RATE_LIMIT_SKIP_PATHS.some((path) => url.startsWith(path))
         },
+        keyGenerator: (request: FastifyRequest) => {
+          return (
+            request.ip ||
+            (request.headers['x-forwarded-for'] as string) ||
+            '127.0.0.1'
+          )
+        },
         message: request.t('errors.rate_limit_exceeded', {
           limit: context.max,
           window: context.after,

@@ -1,0 +1,35 @@
+name: CI - OmniNexus Backend
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    name: Run Lint and Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Run Biome Lint
+        run: bun x @biomejs/biome check .
+
+      - name: Run Tests
+        run: bun test
+        env:
+          NODE_ENV: test
+          RATE_LIMIT_MAX: 100
+          RATE_LIMIT_WINDOW: '1 minute'
+          RATE_LIMIT_SKIP_PATHS: '[]'
