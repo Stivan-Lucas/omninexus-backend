@@ -9,54 +9,73 @@
 ![Drizzle ORM](https://img.shields.io/badge/drizzle-orm-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black)
 
 [![GitHub Release](https://img.shields.io/github/v/release/Stivan-Lucas/backend?style=flat-square&color=7c3aed)](https://github.com/Stivan-Lucas/backend/releases)
-[![GitHub License](https://img.shields.io/github/license/Stivan-Lucas/backend?style=flat-square&color=7c3aed)](https://github.com/Stivan-Lucas/backend/blob/main/LICENSE)
+[![CI Status](https://github.com/Stivan-Lucas/backend/actions/workflows/ci.yml/badge.svg)](https://github.com/Stivan-Lucas/backend/actions/workflows/ci.yml)
 [![Commitizen Friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
-
-[![Release Status](https://github.com/Stivan-Lucas/backend/actions/workflows/release.yml/badge.svg)](https://github.com/Stivan-Lucas/backend/actions/workflows/release.yml)
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/Stivan-Lucas/backend?style=flat-square)
 
-O **OmniNexus** é uma plataforma de Monitoramento e Gerenciamento Remoto (RMM) de alta performance, projetada para escala horizontal. Utilizando um agente ultraleve em **Rust** e um backend reativo com **Bun** e **Kafka**, ele entrega telemetria eficiente com baixo consumo de recursos e isolamento multi-tenant.
+O **OmniNexus** é uma plataforma de Monitoramento e Gerenciamento Remoto (RMM) de alta performance, projetada para escala horizontal e telemetria eficiente. O **OmniNexus Backend** atua como o motor de processamento central do ecossistema, utilizando o runtime **Bun** e o framework **Fastify** para entregar um processamento reativo de ultra-baixa latência.
+
+Integrado ao **OmniNexus Agent** (escrito em **Rust**) e ao **Apache Kafka**, o backend é capaz de receber, validar e persistir grandes volumes de dados com isolamento multi-tenant e baixo consumo de recursos, garantindo resiliência e escalabilidade para parques tecnológicos de qualquer tamanho.
 
 ---
 
 ## 🚀 A Dor que Resolvemos
 
-Manter parques tecnológicos de diversas empresas exige visibilidade proativa. O OmniNexus cura as seguintes dores:
+Manter parques tecnológicos exige visibilidade proativa. O OmniNexus cura as seguintes dores:
 
 * **Falta de Visibilidade em Tempo Real:** Monitoramento constante de saúde de hardware e software.
-* **Sobrecarga de Infraestrutura:** Ingestão via Kafka que permite processar milhões de métricas sem travar o banco de dados principal (escrita otimizada).
-* **Custo de Operação:** Agente em Rust que consome < 5MB de RAM, ideal para máquinas legadas ou servidores críticos.
-* **Sincronização Diferencial:** Separação entre Inventário (estático) e Telemetria (dinâmica) para reduzir o tráfego de rede.
+* **Sobrecarga de Infraestrutura:** Ingestão via Kafka para processar métricas sem travar o banco principal.
+* **Custo de Operação:** Agente em Rust que consome < 5MB de RAM, ideal para máquinas legadas.
+* **Sincronização Diferencial:** Separação inteligente entre Inventário e Telemetria.
+
+---
+
+## 🌍 Global Infrastructure (I18n)
+
+O backend do OmniNexus é totalmente internacionalizado utilizando `i18next`. Todas as respostas de erro, mensagens de sucesso e validações respeitam a localidade do usuário.
+
+### Detecção de Idioma
+O sistema detecta automaticamente o idioma preferido através do header padrão HTTP:
+* **Header:** `Accept-Language`
+* **Idiomas Suportados:** `pt-BR` (Português), `en` (English - Fallback).
+* **Injection:** O backend responde com o header `Content-Language` para confirmar o idioma da resposta.
+
+**Exemplo de uso:**
+```http
+GET / HTTP/1.1
+Host: api.omninexus.com.br
+Accept-Language: pt-BR
+```
+
+---
+
+## 🧪 Qualidade e Testes (CI/CD)
+
+Garantimos a estabilidade do ecossistema através de uma pipeline de Integração Contínua (CI) robusta.
+
+* **Linting:** Utilizamos o **Biome** para análise estática de código e formatação ultrarrápida.
+* **Automated Tests:** Suíte de testes funcionais e integrados rodando sobre o **Bun Test**.
+* **GitHub Actions:** Cada Pull Request é validado automaticamente. O merge só é permitido se o lint e os testes passarem (Green Build).
+
+### Como rodar os testes localmente:
+```bash
+# Rodar todos os testes uma vez
+bun test
+
+# Rodar em modo watch (desenvolvimento)
+bun test --watch
+```
 
 ---
 
 ## 🛠️ Stack Tecnológica
 
-* **Runtime:** [Bun](https://bun.sh/) (Performance de ultra-baixa latência)
-* **Framework:** [Fastify](https://www.fastify.io/) (Ecosystem orientado a plugins e velocidade)
-* **Mensageira:** [Apache Kafka](https://kafka.apache.org/) (Streaming de dados e resiliência)
-* **ORM:** [Drizzle ORM](https://orm.drizzle.team/) (Type-safety e performance SQL nativa)
-* **Bancos de Dados:** PostgreSQL (Segregação de Read/Write) e Redis (Cache/Rate Limit)
-* **Agent:** Rust (Segurança de memória e baixo overhead)
-* **Documentação:** Scalar UI / Swagger
-
----
-
-## 🌍 Internationalization (I18n)
-
-O OmniNexus é global. O backend utiliza o framework `i18next` para fornecer mensagens de resposta, erros e logs localizados.
-
-* **Detecção Automática:** O idioma é detectado através do header `Accept-Language` enviado na requisição.
-* **Fallback:** Caso o idioma não seja suportado ou não seja enviado, o padrão é `en` (Inglês).
-* **Idiomas Suportados:**
-    * `en` (English) - Default
-    * `pt` (Português Brasileiro)
-
-### Como utilizar:
-Para receber respostas em português, envie o header nas suas requisições:
-```http
-Accept-Language: pt-BR
-```
+* **Runtime:** [Bun](https://bun.sh/)
+* **Framework:** [Fastify](https://www.fastify.io/) (Zod Type Provider)
+* **Segurança:** Rate Limiting por IP/Token.
+* **Doc:** [Scalar](https://scalar.com/) (Interface moderna para OpenAPI/Swagger)
+* **ORM:** [Drizzle ORM](https://orm.drizzle.team/)
+* **Agent:** Rust
 
 ---
 
@@ -79,24 +98,14 @@ Accept-Language: pt-BR
     cp .env.example .env
     ```
 
-3.  **Suba os containers (Postgres, Kafka, Redis):**
+3.  **Inicie a infraestrutura:**
     ```bash
     docker-compose up -d
     ```
 
-4.  **Instale as dependências:**
+4.  **Instale e rode:**
     ```bash
     bun install
-    ```
-
-5.  **Prepare o Banco de Dados:**
-    ```bash
-    bun run db:generate
-    bun run db:push
-    ```
-
-6.  **Inicie o servidor:**
-    ```bash
     bun run dev
     ```
 
@@ -129,7 +138,8 @@ Adoramos contribuições! Para manter a rastreabilidade e o histórico limpo, ut
 
 ## 📄 Licença
 
-Distribuído sob a licença Apache-2.0. Veja `LICENSE` para mais informações.
+Distribuído sob a licença [Apache-2.0](https://apache.org/licenses/LICENSE-2.0). Veja `LICENSE` para mais informações.
 
 ---
 **Desenvolvido com ☕ por Stivan Lucas.**
+```
