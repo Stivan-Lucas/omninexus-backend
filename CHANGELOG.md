@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Stivan-Lucas/backend/compare/v1.2.0...v1.3.0) (2026-03-27)
+
+
+### Features
+
+* **test:** implement bun test suite and github actions ci workflow ([f988728](https://github.com/Stivan-Lucas/backend/commit/f9887283eb8cb9cfce5da7a6d1832f74e0c48381))
+
 # [1.2.0](https://github.com/Stivan-Lucas/backend/compare/v1.1.0...v1.2.0) (2026-03-27)
 
 
