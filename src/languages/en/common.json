@@ -1,1 +1,18 @@
-{ "welcome": "Hello World" }
+{
+  "welcome": "Hello World",
+  "errors": {
+    "rate_limit_exceeded": "Rate limit exceeded! You can only make {{limit}} requests every {{window}}.",
+    "env": {
+      "invalid_variables": "❌ Invalid environment variables:",
+      "invalid_node_env": "NODE_ENV must be: development, production, or test",
+      "invalid_port": "PORT must be a positive number",
+      "host_required": "HOST is required",
+      "invalid_log_level": "Invalid LOG_LEVEL. Check the supported options.",
+      "invalid_size": "Invalid size format (e.g., 100m, 1g)",
+      "invalid_interval": "Invalid interval format (e.g., 1d, 12h)",
+      "swagger_required": "Swagger credentials are required",
+      "invalid_rate_limit_max": "RATE_LIMIT_MAX must be a positive number",
+      "invalid_rate_limit_window": "Invalid time window (e.g., 1m, 1minute, 30s)"
+    }
+  }
+}

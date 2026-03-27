@@ -5,6 +5,7 @@ import fp from 'fastify-plugin'
 import { jsonSchemaTransform } from 'fastify-type-provider-zod'
 import packageJson from '../../package.json'
 import { env } from '../env/env'
+import { API_TAGS } from '../types/docs'
 import type { FastifyTypedInstance } from '../types/fastify'
 
 export const docsPlugin = fp(async (app: FastifyTypedInstance) => {
@@ -58,7 +59,12 @@ export const docsPlugin = fp(async (app: FastifyTypedInstance) => {
           },
         },
       },
-      tags: [{ name: 'Auth', description: 'End Points de autenticação' }],
+      tags: [
+        {
+          name: API_TAGS.WELCOME.name,
+          description: API_TAGS.WELCOME.description,
+        },
+      ],
     },
   })
 
