@@ -19,8 +19,15 @@ export const i18nPlugin = fp(async (app: FastifyTypedInstance) => {
     },
   })
 
-  app.addHook('onRequest', async (request) => {
-    const acceptLanguage = request.headers['accept-language'] ?? ''
-    request.t = i18next.getFixedT(acceptLanguage)
+  app.addHook('onRequest', async (req, res) => {
+    const acceptLanguage = (req.headers['accept-language'] as string) ?? 'en'
+
+    const resolved =
+      i18next.services.languageUtils.getLanguagePartFromCode(acceptLanguage)
+
+    req.t = i18next.getFixedT(acceptLanguage)
+    req.i18n = i18next
+    req.resolvedLanguage = resolved
+    res.header('Content-Language', resolved)
   })
 })
