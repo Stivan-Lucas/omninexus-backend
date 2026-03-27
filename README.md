@@ -4,6 +4,7 @@
 ![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)
 ![Fastify](https://img.shields.io/badge/fastify-%23000000.svg?style=for-the-badge&logo=fastify&logoColor=white)
 ![Kafka](https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka)
+![I18N](https://img.shields.io/badge/i18n-integrated-61dafb?style=for-the-badge&logo=i18next)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Drizzle ORM](https://img.shields.io/badge/drizzle-orm-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black)
 
@@ -41,6 +42,24 @@ Manter parques tecnológicos de diversas empresas exige visibilidade proativa. O
 
 ---
 
+## 🌍 Internationalization (I18n)
+
+O OmniNexus é global. O backend utiliza o framework `i18next` para fornecer mensagens de resposta, erros e logs localizados.
+
+* **Detecção Automática:** O idioma é detectado através do header `Accept-Language` enviado na requisição.
+* **Fallback:** Caso o idioma não seja suportado ou não seja enviado, o padrão é `en` (Inglês).
+* **Idiomas Suportados:**
+    * `en` (English) - Default
+    * `pt` (Português Brasileiro)
+
+### Como utilizar:
+Para receber respostas em português, envie o header nas suas requisições:
+```http
+Accept-Language: pt-BR
+```
+
+---
+
 ## ⚙️ Como Rodar o Projeto
 
 ### Pré-requisitos
@@ -51,7 +70,7 @@ Manter parques tecnológicos de diversas empresas exige visibilidade proativa. O
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/Stivan-Lucas/backend.git](https://github.com/Stivan-Lucas/backend.git)
+    git clone https://github.com/Stivan-Lucas/backend.git
     cd backend
     ```
 
@@ -114,4 +133,3 @@ Distribuído sob a licença Apache-2.0. Veja `LICENSE` para mais informações.
 
 ---
 **Desenvolvido com ☕ por Stivan Lucas.**
-2
