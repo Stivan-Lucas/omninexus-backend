@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Stivan-Lucas/backend/compare/v1.0.0...v1.1.0) (2026-03-27)
+
+
+### Features
+
+* **i18n:** add strict typing for translation keys from JSON ([1655cbe](https://github.com/Stivan-Lucas/backend/commit/1655cbeba2a3ec1e092b73acfdbbfeed3dabe419))
+
 # 1.0.0 (2026-03-19)
 
 
