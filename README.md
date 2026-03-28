@@ -114,6 +114,29 @@ Acesse a documentação em: `http://localhost:3000/docs`
 
 ---
 
+## 🗄️ Gestão de Banco de Dados (Drizzle ORM)
+
+O OmniNexus utiliza o **Drizzle ORM** para garantir máxima performance e *Type Safety*. O gerenciamento do banco de dados (PostgreSQL) é feito através do Bun, utilizando os seguintes comandos:
+
+### Fluxo de Trabalho
+
+Sempre que você alterar o arquivo `src/database/schema.ts`, utilize os comandos abaixo de acordo com a sua necessidade:
+
+| Comando | Descrição | Quando usar? |
+| :--- | :--- | :--- |
+| `bun run db:push` | Sincroniza o schema diretamente com o banco. | Durante o desenvolvimento rápido (Prototipagem). |
+| `bun run db:generate` | Gera arquivos SQL de migração na pasta `/drizzle`. | Antes de realizar um **Commit** para versionar o banco. |
+| `bun run db:migrate` | Aplica as migrações SQL pendentes no banco. | Em ambientes de **Produção** ou CI/CD. |
+| `bun run db:studio` | Abre uma interface técnica para visualizar os dados. | Sempre que precisar validar registros manualmente. |
+
+### Exemplo Prático:
+1. Altere uma coluna em `src/database/schema.ts`.
+2. Execute `bun run db:push` para testar imediatamente no Docker.
+3. Após validar, execute `bun run db:generate` para criar o histórico de migração.
+4. Faça o commit dos arquivos gerados na pasta `/drizzle`.
+
+---
+
 ## 🤝 Contribuição e Commits
 
 Adoramos contribuições! Para manter a rastreabilidade e o histórico limpo, utilizamos **Conventional Commits**.
