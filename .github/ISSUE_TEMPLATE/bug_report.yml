@@ -1,0 +1,25 @@
+name: "🐞 Bug Report"
+description: Relatar algo que não está funcionando no Backend
+body:
+  - type: markdown
+    attributes:
+      value: "Obrigado por ajudar a melhorar o OmniNexus!"
+  - type: input
+    id: version
+    attributes:
+      label: Versão do Backend/Bun
+      placeholder: "ex: v1.0.4 / Bun 1.1.x"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para Reproduzir
+      placeholder: "1. Iniciei o container... 2. Endpoint X retornou 500..."
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs de Erro (Contexto Bun/Fastify)
+      render: shell

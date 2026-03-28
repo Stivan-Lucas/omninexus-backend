@@ -1,0 +1,13 @@
+name: "🚀 Feature Request"
+description: Sugerir uma nova funcionalidade ou melhoria
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Qual problema essa feature resolve?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Descrição da Solução Proposta

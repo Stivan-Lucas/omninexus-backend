@@ -18,18 +18,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
+        env:
+          HUSKY: 0
+
+      - name: Run Quality Checks (Biome & Oxlint)
+        run: bun run ci
+
+      - name: Run Tests
+        run: bun test
 
       - name: Release
         env:
