@@ -67,6 +67,9 @@ const envSchema = z.object({
       .map((v) => v.trim())
       .filter(Boolean),
   ),
+
+  // Database Config
+  DATABASE_URL: z.string(),
 })
 
 const _env = envSchema.safeParse(Bun.env)

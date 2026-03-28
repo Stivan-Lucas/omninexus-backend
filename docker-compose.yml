@@ -1,0 +1,68 @@
+version: "3.9"
+
+name: omninexus
+
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: omninexus-db
+
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+
+    command: >
+      postgres
+      -c max_connections=${DB_MAX_CONNECTIONS}
+      -c shared_buffers=${DB_SHARED_BUFFERS}
+      -c work_mem=${DB_WORK_MEM}
+      -c maintenance_work_mem=${DB_MAINTENANCE_WORK_MEM}
+
+    ports:
+      - "${DB_PORT}:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    networks:
+      - backend
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+    mem_limit: ${DB_MEMORY_LIMIT}
+    cpus: ${DB_CPU_LIMIT}
+
+    deploy:
+      resources:
+        limits:
+          cpus: "${DB_CPU_LIMIT}"
+          memory: "${DB_MEMORY_LIMIT}"
+        reservations:
+          cpus: "${DB_CPU_RESERVATION}"
+          memory: "${DB_MEMORY_RESERVATION}"
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  backend:
+    name: omninexus-network
+    driver: bridge
+
+volumes:
+  postgres_data:
+    name: omninexus-postgres-data
