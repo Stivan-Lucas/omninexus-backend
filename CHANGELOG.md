@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/Stivan-Lucas/backend/compare/v1.3.1...v1.4.0) (2026-03-28)
+
+
+### Bug Fixes
+
+* **error:** add new env validate ([eb3dec5](https://github.com/Stivan-Lucas/backend/commit/eb3dec5fee150a2014e07103087e113b3214d9be))
+
+
+### Features
+
+* **database:** setup postgres with drizzle and users module infrastructure ([96c0426](https://github.com/Stivan-Lucas/backend/commit/96c04268821eb5e9059908559c24309e2ecdc733))
+
 ## [1.3.1](https://github.com/Stivan-Lucas/backend/compare/v1.3.0...v1.3.1) (2026-03-28)
 
 
