@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/Stivan-Lucas/backend/compare/v1.3.0...v1.3.1) (2026-03-28)
+
+
+### Bug Fixes
+
+* **ci:** upgrade node to v22 and inject test environment variables ([74a6aa9](https://github.com/Stivan-Lucas/backend/commit/74a6aa9ab4b61793aaebae31df1e5c5d8f520611))
+* **tests:** remove unused env import in app.test.ts ([b26413b](https://github.com/Stivan-Lucas/backend/commit/b26413b4380491a4220c81aaf662eb8f17ff3a9b))
+
 # [1.3.0](https://github.com/Stivan-Lucas/backend/compare/v1.2.0...v1.3.0) (2026-03-27)
 
 
