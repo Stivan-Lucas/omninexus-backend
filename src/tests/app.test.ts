@@ -1,5 +1,4 @@
 import { beforeAll, describe, expect, test } from 'bun:test'
-import { env } from '../env/env'
 import type { FastifyTypedInstance } from '../types/fastify'
 import { setupTestApp } from './setup'
 
