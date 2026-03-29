@@ -53,7 +53,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "deploy": "bun run db:migrate && bun run start"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.7",
