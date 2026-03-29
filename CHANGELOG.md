@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/Stivan-Lucas/backend/compare/v1.4.0...v1.5.0) (2026-03-29)
+
+
+### Bug Fixes
+
+* **error:** adjusted error params ([85a2ebf](https://github.com/Stivan-Lucas/backend/commit/85a2ebf9f5e1dff7d89993fbe3715ad05f352010))
+
+
+### Features
+
+* **deploy:** prepare to package to deploy db ([378cfa6](https://github.com/Stivan-Lucas/backend/commit/378cfa60d46d475367c200c4a1fd4b0a9e434817))
+
 # [1.4.0](https://github.com/Stivan-Lucas/backend/compare/v1.3.1...v1.4.0) (2026-03-28)
 
 
