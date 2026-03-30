@@ -9,7 +9,7 @@
         "@fastify/cors": "^11.2.0",
         "@fastify/rate-limit": "^10.3.0",
         "@fastify/swagger": "^9.7.0",
-        "@scalar/fastify-api-reference": "^1.49.5",
+        "@scalar/fastify-api-reference": "^1.49.6",
         "bcrypt": "^6.0.0",
         "drizzle-orm": "^0.45.2",
         "fastify": "^5.8.4",
@@ -261,7 +261,7 @@
 
     "@scalar/core": ["@scalar/core@0.4.5", "", { "dependencies": { "@scalar/types": "0.7.5" } }, "sha512-W+GN4oInzUWJzS2uwTQpRWl4uCOcnyXyu2zS05jApWUO5Pn7VSh9JSlqDz0nKVMaizWyjblJqocirlGo71pDPA=="],
 
-    "@scalar/fastify-api-reference": ["@scalar/fastify-api-reference@1.49.6", "", { "dependencies": { "@scalar/core": "0.4.5", "@scalar/openapi-parser": "0.25.6", "@scalar/openapi-types": "0.6.1", "fastify-plugin": "^4.5.1", "github-slugger": "2.0.0" } }, "sha512-xL7jqFjHp19oDCvA2bFPt7tdElbEs3/g3U5zANXX2QTzIWJenGIjotq+73j8UoSX5BSUsqChT1qBdfp3RJ3klg=="],
+    "@scalar/fastify-api-reference": ["@scalar/fastify-api-reference@1.49.7", "", { "dependencies": { "@scalar/core": "0.4.5", "@scalar/openapi-parser": "0.25.6", "@scalar/openapi-types": "0.6.1", "fastify-plugin": "^4.5.1", "github-slugger": "2.0.0" } }, "sha512-OC1ERy96/cz24wdbCgHS2EjpkznqyEKvqIez7KIPmJiR48ff0rPsDKs/XOJQ01Fytq3r8Yb8OHGLsRSej/jzrg=="],
 
     "@scalar/helpers": ["@scalar/helpers@0.4.2", "", {}, "sha512-IrgrGVSahCfYDNWITazz4Q1BOndp5eEzlimRkfxiYn++KqeWyLfALyym1omqcdKGYtiSx1KIbKaUJL9vkjaN7w=="],
 
