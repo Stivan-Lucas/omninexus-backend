@@ -12,7 +12,8 @@
       "invalid_interval": "Formato de intervalo inválido (ex: 1d, 12h)",
       "swagger_required": "Credenciais do Swagger são obrigatórias",
       "invalid_rate_limit_max": "RATE_LIMIT_MAX deve ser um número positivo",
-      "invalid_rate_limit_window": "Janela de tempo inválida (ex: 1m, 1minute, 30s)"
+      "invalid_rate_limit_window": "Janela de tempo inválida (ex: 1m, 1minute, 30s)",
+      "jwt_secret_required": "JWT_SECRET é obrigatório"
     }
   }
 }

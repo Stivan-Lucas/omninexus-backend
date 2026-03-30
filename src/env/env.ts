@@ -70,6 +70,9 @@ const envSchema = z.object({
 
   // Database Config
   DATABASE_URL: z.string(),
+
+  // JWT Config
+  JWT_SECRET: z.string().min(1, t('errors.env.jwt_secret_required')),
 })
 
 const _env = envSchema.safeParse(Bun.env)
