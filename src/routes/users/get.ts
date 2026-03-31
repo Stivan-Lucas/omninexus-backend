@@ -1,7 +1,11 @@
-import { z } from 'zod'
-import { ErrorResponse429Schema } from '../../dtos/errors'
+import { API_TAGS } from '../../config/tags'
+import { GlobalError429ResponseSchema } from '../../dtos/globals/errors'
+import {
+  UserGetError401ResponseSchema,
+  UserGetError404ResponseSchema,
+  UserGetSuccess200ResponseSchema,
+} from '../../dtos/users'
 import { UserService } from '../../modules/users/users.service'
-import { API_TAGS } from '../../types/docs'
 import type { FastifyTypedInstance } from '../../types/fastify'
 
 export async function getUserProfileRoute(app: FastifyTypedInstance) {
@@ -10,20 +14,15 @@ export async function getUserProfileRoute(app: FastifyTypedInstance) {
     {
       onRequest: [app.authenticate],
       schema: {
-        tags: [API_TAGS.USERS?.name ?? 'Users'],
-        summary: 'Obter dados do usuário logado',
+        tags: [API_TAGS.USERS?.name],
+        description: API_TAGS.USERS.description,
+        summary: 'Get the profile of the authenticated user',
         security: [{ bearerAuth: [] }],
         response: {
-          200: z.object({
-            id: z.uuid(),
-            name: z.string(),
-            email: z.email(),
-            role: z.string(),
-          }),
-          404: z.object({
-            message: z.string(),
-          }),
-          429: ErrorResponse429Schema,
+          200: UserGetSuccess200ResponseSchema,
+          401: UserGetError401ResponseSchema,
+          404: UserGetError404ResponseSchema,
+          429: GlobalError429ResponseSchema,
         },
       },
     },
@@ -31,7 +30,9 @@ export async function getUserProfileRoute(app: FastifyTypedInstance) {
       const user = await UserService.findByEmail(request.user.email)
 
       if (!user) {
-        return reply.status(404).send({ message: 'User not found' })
+        return reply
+          .status(404)
+          .send({ message: request.t('users.get.notFound') })
       }
 
       return reply.status(200).send({

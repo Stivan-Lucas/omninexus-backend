@@ -1,7 +1,15 @@
-import { z } from 'zod'
-import { ErrorResponse429Schema } from '../../dtos/errors'
+import { API_TAGS } from '../../config/tags'
+import {
+  GlobalError400ResponseSchema,
+  GlobalError429ResponseSchema,
+} from '../../dtos/globals/errors'
+import {
+  CreateUserBodyDTO,
+  UserPostError409ResponseSchema,
+  UserPostError500ResponseSchema,
+  UserPostSuccess201ResponseSchema,
+} from '../../dtos/users'
 import { UserService } from '../../modules/users/users.service'
-import { API_TAGS } from '../../types/docs'
 import type { FastifyTypedInstance } from '../../types/fastify'
 
 export async function createUserRoute(app: FastifyTypedInstance) {
@@ -10,24 +18,15 @@ export async function createUserRoute(app: FastifyTypedInstance) {
     {
       schema: {
         tags: [API_TAGS.USERS.name],
-        summary: 'Criar novo administrador',
-        body: z.object({
-          name: z.string().min(3),
-          email: z.email(),
-          password: z.string().min(6),
-        }),
+        description: API_TAGS.USERS.description,
+        summary: 'Create a new user',
+        body: CreateUserBodyDTO,
         response: {
-          201: z.object({
-            id: z.uuid(),
-            email: z.email(),
-          }),
-          409: z.object({
-            message: z.string(),
-          }),
-          429: ErrorResponse429Schema,
-          500: z.object({
-            message: z.string(),
-          }),
+          201: UserPostSuccess201ResponseSchema,
+          400: GlobalError400ResponseSchema,
+          409: UserPostError409ResponseSchema,
+          429: GlobalError429ResponseSchema,
+          500: UserPostError500ResponseSchema,
         },
       },
     },
@@ -36,7 +35,8 @@ export async function createUserRoute(app: FastifyTypedInstance) {
 
       const userExists = await UserService.findByEmail(email)
       if (userExists) {
-        return reply.status(409).send({ message: 'User already exists' })
+        const message = request.t('users.errors.userExists')
+        return reply.status(409).send({ message })
       }
 
       const [createdUser] = await UserService.createMaster({
@@ -46,7 +46,8 @@ export async function createUserRoute(app: FastifyTypedInstance) {
       })
 
       if (!createdUser) {
-        return reply.status(500).send({ message: 'Failed to create user' })
+        const message = request.t('users.errors.creationFailed')
+        return reply.status(500).send({ message })
       }
 
       return reply.status(201).send(createdUser)

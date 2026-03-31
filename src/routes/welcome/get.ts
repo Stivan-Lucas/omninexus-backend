@@ -1,14 +1,7 @@
-import z from 'zod'
-import { ErrorResponse429Schema } from '../../dtos/errors'
-import { API_TAGS } from '../../types/docs'
+import { API_TAGS } from '../../config/tags'
+import { GlobalError429ResponseSchema } from '../../dtos/globals/errors'
+import { WelcomeSuccess200ResponseSchema } from '../../dtos/welcome/welcome.dto'
 import type { FastifyTypedInstance } from '../../types/fastify'
-
-const get200Schema = z
-  .object({
-    statusCode: z.literal(200),
-    message: z.string(),
-  })
-  .describe('Resposta padrão')
 
 export async function getWelcomeRoute(app: FastifyTypedInstance) {
   app.get(
@@ -16,16 +9,17 @@ export async function getWelcomeRoute(app: FastifyTypedInstance) {
     {
       schema: {
         tags: [API_TAGS.WELCOME.name],
-        summary: 'Teste API',
-        description: 'Endpoints para testar se backend está respondendo!',
+        description: API_TAGS.WELCOME.description,
+        summary: 'Test API is online',
         response: {
-          200: get200Schema,
-          429: ErrorResponse429Schema,
+          200: WelcomeSuccess200ResponseSchema,
+          429: GlobalError429ResponseSchema,
         },
       },
     },
     async (req, res) => {
       const message = req.t('welcome')
+
       return res.status(200).send({
         statusCode: 200,
         message,
