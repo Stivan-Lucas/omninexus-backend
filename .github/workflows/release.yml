@@ -55,6 +55,7 @@ jobs:
           RATE_LIMIT_WINDOW: "1m"
           RATE_LIMIT_SKIP_PATHS: "/docs"
           DATABASE_URL: ""
+          JWT_SECRET: ""
 
       - name: Release
         env:
