@@ -3,7 +3,7 @@
   "displayName": "🛡️ OmniNexus Ecosystem - Next-Gen RMM",
   "description": "O Omninexus Backend é o motor de processamento de telemetria do ecossistema Omninexus. Ele foi projetado para ser ultra-rápido, utilizando o runtime Bun e o framework Fastify para receber, validar e persistir os dados enviados pelo Omninexus Agent.",
   "module": "src/server.ts",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "type": "module",
   "private": true,
   "homepage": "https://github.com/Stivan-Lucas/backend#readme",

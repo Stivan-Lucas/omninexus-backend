@@ -1,3 +1,21 @@
+# [1.6.0](https://github.com/Stivan-Lucas/backend/compare/v1.5.0...v1.6.0) (2026-03-31)
+
+
+### Bug Fixes
+
+* **ci:** fix environment variable validation in github actions ([948bb19](https://github.com/Stivan-Lucas/backend/commit/948bb1987eeae553fe508fddeb4fcb8007b17c76))
+* **env:** fix CI environment validation and remove translations from schema ([2ba8ae2](https://github.com/Stivan-Lucas/backend/commit/2ba8ae2e12b700f219b91130ea6a39b72ced96bc))
+
+
+### Features
+
+* **auth:** implement jwt provider and extended fastify types ([89dbb75](https://github.com/Stivan-Lucas/backend/commit/89dbb75cd34920d5da8da243d3e85045c3f73e7e))
+* **auth:** integrate localized error handling in routes and auth plugin ([9da8d20](https://github.com/Stivan-Lucas/backend/commit/9da8d2036f8df33aa1c3eb2e082f5c8f743a1500))
+* **auth:** setup jwt plugin and fastify type definitions ([0e09ea1](https://github.com/Stivan-Lucas/backend/commit/0e09ea10db00123c6403002eac635fb8a07ab93d))
+* **i18n:** setup i18next plugin and localized resources ([e0e4330](https://github.com/Stivan-Lucas/backend/commit/e0e4330664b3832183cde7fb25ccad739d85f734))
+* **users:** add user crud and login routes ([fe21d7c](https://github.com/Stivan-Lucas/backend/commit/fe21d7c53f61aea6df8d7ab6fa4beaae6c340850))
+* **validation:** implement global zod error map with i18n support ([ad4bf19](https://github.com/Stivan-Lucas/backend/commit/ad4bf1902174c7c693094a8f809ab02ded097771))
+
 # [1.5.0](https://github.com/Stivan-Lucas/backend/compare/v1.4.0...v1.5.0) (2026-03-29)
 
 
