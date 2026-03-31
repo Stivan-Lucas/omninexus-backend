@@ -4,8 +4,8 @@ import scalarApiReference from '@scalar/fastify-api-reference'
 import fp from 'fastify-plugin'
 import { jsonSchemaTransform } from 'fastify-type-provider-zod'
 import packageJson from '../../package.json'
+import { API_TAGS } from '../config/tags'
 import { env } from '../env/env'
-import { API_TAGS } from '../types/docs'
 import type { FastifyTypedInstance } from '../types/fastify'
 
 export const docsPlugin = fp(async (app: FastifyTypedInstance) => {

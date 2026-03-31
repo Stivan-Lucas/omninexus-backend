@@ -17,7 +17,13 @@ export const authPlugin = fp(async (app: FastifyTypedInstance) => {
       try {
         await request.jwtVerify()
       } catch (err) {
-        reply.send(err)
+        app.log.error(err, 'JWT verification failed')
+        const message = request.t('auth.unauthorized')
+        return reply.status(401).send({
+          statusCode: 401,
+          error: 'Unauthorized',
+          message,
+        })
       }
     },
   )
