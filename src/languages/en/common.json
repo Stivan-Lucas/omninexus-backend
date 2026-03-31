@@ -1,5 +1,32 @@
 {
   "welcome": "Hello World",
+  "auth": {
+    "unauthorized": "Unauthorized access",
+    "invalidCredentials": "Invalid email or password",
+    "invalid_body": "Invalid or malformed request body",
+    "invalid_credentials": "Incorrect email or password",
+    "invalid_email": "Invalid email format",
+    "password_too_short": "Password must be at least {{minLength}} characters long",
+    "password_requirements": "Password must contain uppercase letters, lowercase letters, numbers, and special characters"
+  },
+  "validation": {
+    "invalid_string": {
+      "email": "The email format is invalid.",
+      "regex": "The password must contain uppercase letters, lowercase letters, numbers, and special characters."
+    },
+    "too_small": "The field {{path}} must have at least {{minimum}} characters.",
+    "invalid_type": "The field {{path}} is required or is in an incorrect format.",
+    "invalid_format": "Invalid format for the field {{path}}."
+  },
+  "users": {
+    "errors": {
+      "userExists": "User already exists",
+      "creationFailed": "Failed to create user"
+    },
+    "get": {
+      "notFound": "User not found"
+    }
+  },
   "errors": {
     "rate_limit_exceeded": "Rate limit exceeded! You can only make {{limit}} requests every {{window}}.",
     "env": {

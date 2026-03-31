@@ -1,5 +1,32 @@
 {
   "welcome": "Olá Mundo",
+  "auth": {
+    "unauthorized": "Acesso não autorizado",
+    "invalidCredentials": "Email ou senha inválidos",
+    "invalid_body": "Corpo da requisição inválido ou malformado",
+    "invalid_credentials": "E-mail ou senha incorretos",
+    "invalid_email": "Formato de email inválido",
+    "password_too_short": "A senha deve ter pelo menos {{minLength}} caracteres",
+    "password_requirements": "A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial"
+  },
+  "validation": {
+    "invalid_string": {
+      "email": "O formato do e-mail é inválido.",
+      "regex": "A senha deve conter letras maiúsculas, minúsculas, números e caracteres especiais."
+    },
+    "too_small": "O campo {{path}} deve ter no mínimo {{minimum}} caracteres.",
+    "invalid_type": "O campo {{path}} é obrigatório ou está no formato incorreto.",
+    "invalid_format": "Formato inválido para o campo {{path}}."
+  },
+  "users": {
+    "errors": {
+      "userExists": "Usuário já existe",
+      "creationFailed": "Falha ao criar usuário"
+    },
+    "get": {
+      "notFound": "Usuário não encontrado"
+    }
+  },
   "errors": {
     "rate_limit_exceeded": "Limite excedido! Você só pode fazer {{limit}} requisições a cada {{window}}.",
     "env": {
