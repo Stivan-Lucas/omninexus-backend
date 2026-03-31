@@ -54,7 +54,8 @@ jobs:
           RATE_LIMIT_MAX: 100
           RATE_LIMIT_WINDOW: "1m"
           RATE_LIMIT_SKIP_PATHS: "/docs"
-          DATABASE_URL: ""
+          DATABASE_URL: "postgresql://user:pass@localhost:5432/db"
+          JWT_SECRET: "your_jwt_secret"
 
       - name: Release
         env:

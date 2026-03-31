@@ -93,4 +93,3 @@ Para que uma **Issue** seja fechada ou um **Pull Request** seja aceito, os segui
 
 ---
 **Desenvolvido com foco em performance por Stivan Lucas.**
-```

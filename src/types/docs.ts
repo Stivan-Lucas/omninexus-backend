@@ -1,8 +1,3 @@
-export const API_TAGS = {
-  WELCOME: {
-    name: 'Welcome',
-    description: 'Endpoints para testar se backend está respondendo!',
-  },
-} as const
+import type { API_TAGS } from '../config/tags'
 
 export type ApiTagName = (typeof API_TAGS)[keyof typeof API_TAGS]
