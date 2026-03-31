@@ -45,3 +45,4 @@ jobs:
           RATE_LIMIT_WINDOW: 1 minute
           RATE_LIMIT_SKIP_PATHS: "[]"
           DATABASE_URL: "postgresql://postgres:password@localhost:5432/omnix?schema=public"
+          JWT_SECRET: "your_jwt_secret"
