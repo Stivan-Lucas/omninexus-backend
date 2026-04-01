@@ -1,3 +1,18 @@
+# [1.7.0](https://github.com/Stivan-Lucas/omninexus-backend/compare/v1.6.0...v1.7.0) (2026-04-01)
+
+
+### Bug Fixes
+
+* **release:** update repository URL to match github ([493e3a2](https://github.com/Stivan-Lucas/omninexus-backend/commit/493e3a2c77866afb25e6dc42030aaf8a968afa2c))
+* **release:** update repository URL to match GitHub ([97adf8f](https://github.com/Stivan-Lucas/omninexus-backend/commit/97adf8f7d3763415dbf5ef3b912ca7540b415655))
+
+
+### Features
+
+* **api:** implement agent keys management and auth refactor ([66c5fa0](https://github.com/Stivan-Lucas/omninexus-backend/commit/66c5fa0ba20d7869b8b1a25e5a8d4ccd4cd59edb))
+* **db:** modularização do schema e nova tabela de licenças ([e9b428c](https://github.com/Stivan-Lucas/omninexus-backend/commit/e9b428c36b7bd3fc2bcf454a1f1177254d010bdd))
+* **db:** modularização do schema e nova tabela de licenças ([b7388d9](https://github.com/Stivan-Lucas/omninexus-backend/commit/b7388d9455380d1a533d040833ff5cfc6936991d))
+
 # [1.6.0](https://github.com/Stivan-Lucas/backend/compare/v1.5.0...v1.6.0) (2026-03-31)
 
 
