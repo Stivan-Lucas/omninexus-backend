@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
 import { eq } from 'drizzle-orm'
+import { users } from '../../database'
 import { db } from '../../database/db'
-import { users } from '../../database/schema'
 
 export const UserService = {
   async createMaster(data: { name: string; email: string; password: string }) {

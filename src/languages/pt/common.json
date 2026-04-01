@@ -1,5 +1,11 @@
 {
   "welcome": "Olá Mundo",
+  "keys": {
+    "created": "Criada {{quantity}} chave(s) para o usuário {{name}}",
+    "resetSuccess": "Chave redefinida com sucesso",
+    "invalidOrInactive": "Chave inválida ou inativa",
+    "alreadyLinkedToOther": "Esta chave já está vinculada a outro usuário"
+  },
   "auth": {
     "unauthorized": "Acesso não autorizado",
     "invalidCredentials": "Email ou senha inválidos",
