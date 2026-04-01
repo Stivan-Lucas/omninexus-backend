@@ -1,5 +1,11 @@
 {
   "welcome": "Hello World",
+  "keys": {
+    "created": "Created {{quantity}} key(s) for user {{name}}",
+    "resetSuccess": "Key reset successfully",
+    "invalidOrInactive": "Invalid or inactive key",
+    "alreadyLinkedToOther": "This key is already linked to another user"
+  },
   "auth": {
     "unauthorized": "Unauthorized access",
     "invalidCredentials": "Invalid email or password",

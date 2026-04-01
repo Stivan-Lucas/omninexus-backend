@@ -39,7 +39,7 @@ export async function loginRoute(app: FastifyTypedInstance) {
       }
 
       const token = app.jwt.sign(
-        { id: user.id, email: user.email, role: user.role },
+        { id: user.id, email: user.email, role: user.role, name: user.name },
         { expiresIn: '1d', algorithm: 'HS256' },
       )
 
